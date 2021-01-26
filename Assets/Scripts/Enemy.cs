@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
 
     public Transform player;
 
+    public Transform enemy;
+
     public LayerMask whatIsGround, whatIsPlayer;
 
     //Patroling
@@ -19,6 +21,7 @@ public class Enemy : MonoBehaviour
     //Attacking
     public float TimeBetweenAttacks;
     bool AlreadyAttacked;
+    public GameObject projectileCO;
 
     //States
     public float sightRange, attackRange;
@@ -31,6 +34,7 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        CapsuleCollider capCol = GetComponent<CapsuleCollider>();
     }
 
     private void Update()
@@ -96,8 +100,11 @@ public class Enemy : MonoBehaviour
 
         if (!AlreadyAttacked)
         {
-
+            GameObject projectile = Instantiate(projectileCO, player.transform.position, Quaternion.identity);
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 5f, ForceMode.Impulse);
             
+            Destroy(projectile, 2f);
 
             AlreadyAttacked = true;
             Invoke(nameof(ResetAttack), TimeBetweenAttacks);
