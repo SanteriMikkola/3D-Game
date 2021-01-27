@@ -97,8 +97,7 @@ public class Enemy : MonoBehaviour
     private void AttackPlayer()
     {
         agent.SetDestination(transform.position);
-
-        transform.LookAt(player);
+        agent.transform.LookAt(player);
 
         if (!AlreadyAttacked && ammo > 0f)
         {
@@ -107,13 +106,16 @@ public class Enemy : MonoBehaviour
 
             GameObject projectile = Instantiate(projectileCO, attackpoint.transform.position, Quaternion.identity);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 8f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
             ammo--;
 
             Destroy(projectile, 2f);
 
             AlreadyAttacked = true;
             Invoke(nameof(ResetAttack), TimeBetweenAttacks);
+
+            
+
             if (ammo <= 0f)
             {
                 StartCoroutine(Reloading());

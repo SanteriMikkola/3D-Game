@@ -10,6 +10,7 @@ public class ProjectileControl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Player take damage!");
             Destroy(projectile.gameObject);
         }
     }
