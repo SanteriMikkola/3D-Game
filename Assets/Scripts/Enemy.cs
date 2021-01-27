@@ -22,6 +22,9 @@ public class Enemy : MonoBehaviour
     public float TimeBetweenAttacks;
     bool AlreadyAttacked;
     public GameObject projectileCO;
+    public GameObject attackpoint;
+    public float ammo = 10f;
+    private bool isReloading = false;
 
     //States
     public float sightRange, attackRange;
@@ -34,7 +37,6 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-        CapsuleCollider capCol = GetComponent<CapsuleCollider>();
     }
 
     private void Update()
@@ -98,17 +100,37 @@ public class Enemy : MonoBehaviour
 
         transform.LookAt(player);
 
-        if (!AlreadyAttacked)
+        if (!AlreadyAttacked && ammo > 0f)
         {
-            GameObject projectile = Instantiate(projectileCO, player.transform.position, Quaternion.identity);
+            if (isReloading)
+                return;
+
+            GameObject projectile = Instantiate(projectileCO, attackpoint.transform.position, Quaternion.identity);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 5f, ForceMode.Impulse);
-            
+            rb.AddForce(transform.forward * 8f, ForceMode.Impulse);
+            ammo--;
+
             Destroy(projectile, 2f);
 
             AlreadyAttacked = true;
             Invoke(nameof(ResetAttack), TimeBetweenAttacks);
+            if (ammo <= 0f)
+            {
+                StartCoroutine(Reloading());
+                return;
+            }
         }
+    }
+
+    IEnumerator Reloading()
+    {
+        isReloading = true;
+        Debug.Log("Enemy reloading!");
+
+        yield return new WaitForSeconds(5f);
+
+        ammo = 10f;
+        isReloading = false;
     }
 
     private void ResetAttack()
