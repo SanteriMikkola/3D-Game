@@ -92,12 +92,12 @@ public class Enemy : MonoBehaviour
     private void PlayerChase()
     {
         agent.SetDestination(player.position);
+        attackpoint.transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z));
     }
 
     private void AttackPlayer()
     {
         agent.SetDestination(transform.position);
-        agent.transform.LookAt(player);
 
         if (!AlreadyAttacked && ammo > 0f)
         {
@@ -113,8 +113,6 @@ public class Enemy : MonoBehaviour
 
             AlreadyAttacked = true;
             Invoke(nameof(ResetAttack), TimeBetweenAttacks);
-
-            
 
             if (ammo <= 0f)
             {
