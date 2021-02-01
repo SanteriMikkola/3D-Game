@@ -27,8 +27,9 @@ public class Enemy : MonoBehaviour
     private bool isReloading = false;
 
     //States
-    public float sightRange, attackRange;
+    public float sightRange, attackRange, alarmRange;
     public bool PlayerInSightRange, PlayerInAttackRange;
+    public bool AlarmCheck;
 
     //Health
     public float health = 10f;
@@ -43,6 +44,7 @@ public class Enemy : MonoBehaviour
     {
         PlayerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         PlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        AlarmCheck = Physics.CheckSphere(transform.position, alarmRange, whatIsPlayer);
 
         if (!PlayerInSightRange && !PlayerInAttackRange)
         {
@@ -70,6 +72,15 @@ public class Enemy : MonoBehaviour
             agent.SetDestination(WalkPoint);
         }
 
+        if (!AlarmCheck)
+        {
+            agent.SetDestination(WalkPoint);
+        }
+        if (AlarmCheck)
+        {
+            agent.SetDestination(player.position);
+        }
+
         Vector3 DistanceToWalkPoint = transform.position - WalkPoint;
 
         if (DistanceToWalkPoint.magnitude < 1f)
@@ -92,6 +103,7 @@ public class Enemy : MonoBehaviour
     private void PlayerChase()
     {
         agent.SetDestination(player.position);
+        agent.transform.LookAt(player);
         attackpoint.transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z));
     }
 
@@ -101,6 +113,7 @@ public class Enemy : MonoBehaviour
 
         if (!AlreadyAttacked && ammo > 0f)
         {
+            AlarmCheck = true;
             if (isReloading)
                 return;
 
