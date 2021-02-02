@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\GenerateEnemies.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\ProjectileControl.cs" />
+    <Compile Include="Assets\Scripts\Shooting.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/2019.4.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
