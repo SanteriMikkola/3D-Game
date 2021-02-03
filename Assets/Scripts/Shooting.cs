@@ -7,6 +7,8 @@ public class Shooting : MonoBehaviour
 {
     public GameObject attackPoint;
     public GameObject ProjectilePF;
+
+    public GameObject Player;
     
     public float range;
     public float TimeBetweenAttack;
@@ -14,6 +16,8 @@ public class Shooting : MonoBehaviour
     public float damage;
     public float ammo;
     private bool isReloading = false;
+    float Yrotate;
+
 
     void Update()
     {
@@ -39,7 +43,11 @@ public class Shooting : MonoBehaviour
             rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
             ammo--;
 
+            Yrotate = Player.transform.rotation.y;
 
+            Yrotate = Mathf.Clamp(0f, Yrotate, 0f);
+
+            projectile.transform.rotation = Quaternion.Euler(0f, Yrotate, 0f);
 
             Destroy(projectile, 2f);
 
