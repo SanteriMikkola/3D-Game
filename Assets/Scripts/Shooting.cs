@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Shooting : MonoBehaviour
 {
     public GameObject attackPoint;
+    public GameObject attackEnd;
     public GameObject ProjectilePF;
 
     public GameObject Player;
@@ -16,7 +17,6 @@ public class Shooting : MonoBehaviour
     public float damage;
     public float ammo;
     private bool isReloading = false;
-    float Yrotate;
 
 
     void Update()
@@ -43,11 +43,7 @@ public class Shooting : MonoBehaviour
             rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
             ammo--;
 
-            Yrotate = Player.transform.rotation.y;
-
-            Yrotate = Mathf.Clamp(0f, Yrotate, 0f);
-
-            projectile.transform.rotation = Quaternion.Euler(0f, Yrotate, 0f);
+            projectile.transform.LookAt(attackEnd.transform.position);
 
             Destroy(projectile, 2f);
 
