@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     bool AlreadyAttacked;
     public GameObject projectileCO;
     public GameObject attackpoint;
+    public GameObject attackEnd;
     public float ammo = 10f;
     private bool isReloading = false;
 
@@ -121,6 +122,8 @@ public class Enemy : MonoBehaviour
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
             ammo--;
+
+            projectile.transform.LookAt(attackEnd.transform.position);
 
             Destroy(projectile, 2f);
 
