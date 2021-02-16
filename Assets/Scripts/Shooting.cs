@@ -43,10 +43,12 @@ public class Shooting : MonoBehaviour
         {
             GameObject projectile = Instantiate(ProjectilePF, attackPoint.transform.position, Quaternion.identity);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * 15f, ForceMode.Impulse);
             ammo--;
 
             projectile.transform.LookAt(attackEnd.transform.position);
+
+            
 
             Destroy(projectile, 2f);
 
