@@ -47,7 +47,7 @@ public class Shooting : MonoBehaviour
             ammo--;
 
             projectile.transform.LookAt(attackEnd.transform.position);
-
+            projectile.transform.Rotate(0f, -90f, 0f);
             
 
             Destroy(projectile, 2f);
