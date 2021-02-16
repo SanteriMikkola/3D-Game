@@ -17,6 +17,7 @@ public class Shooting : MonoBehaviour
     public float damage;
     public float ammo;
     private bool isReloading = false;
+    public ParticleSystem muzzleFlash;
 
 
     void Update()
@@ -36,6 +37,8 @@ public class Shooting : MonoBehaviour
     }
     private void Shoot()
     {
+        muzzleFlash.Play();
+
         if (!alreadyAttack)
         {
             GameObject projectile = Instantiate(ProjectilePF, attackPoint.transform.position, Quaternion.identity);
