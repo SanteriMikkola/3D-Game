@@ -17,6 +17,7 @@ public class Shooting : MonoBehaviour
     public float damage;
     public float ammo;
     private bool isReloading = false;
+    public ParticleSystem muzzleFlash;
 
 
     void Update()
@@ -36,14 +37,18 @@ public class Shooting : MonoBehaviour
     }
     private void Shoot()
     {
+        muzzleFlash.Play();
+
         if (!alreadyAttack)
         {
             GameObject projectile = Instantiate(ProjectilePF, attackPoint.transform.position, Quaternion.identity);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * 15f, ForceMode.Impulse);
             ammo--;
 
             projectile.transform.LookAt(attackEnd.transform.position);
+
+            
 
             Destroy(projectile, 2f);
 
