@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     public GameObject attackEnd;
     public float ammo = 10f;
     private bool isReloading = false;
+    public float EnemyDamage;
 
     //States
     public float sightRange, attackRange, alarmRange;
@@ -33,7 +34,7 @@ public class Enemy : MonoBehaviour
     public bool AlarmCheck;
 
     //Health
-    public float health = 10f;
+    public float health;
 
     private void Awake()
     {
@@ -106,11 +107,14 @@ public class Enemy : MonoBehaviour
         agent.SetDestination(player.position);
         agent.transform.LookAt(player);
         attackpoint.transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z));
+        agent.transform.Rotate(0f, player.transform.position.x, 0f);
+        agent.transform.Rotate(0f, player.transform.position.z, 0f);
     }
 
     private void AttackPlayer()
     {
         agent.SetDestination(transform.position);
+        
 
         if (!AlreadyAttacked && ammo > 0f)
         {
@@ -126,6 +130,11 @@ public class Enemy : MonoBehaviour
             projectile.transform.LookAt(attackEnd.transform.position);
 
             Destroy(projectile, 2f);
+
+            agent.transform.Rotate(0f, player.transform.position.x, 0f);
+            agent.transform.Rotate(0f, player.transform.position.z, 0f);
+            agent.SetDestination(transform.position);
+            agent.transform.LookAt(player);
 
             AlreadyAttacked = true;
             Invoke(nameof(ResetAttack), TimeBetweenAttacks);

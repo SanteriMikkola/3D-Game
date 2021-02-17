@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 7410456617270770371}
   - component: {fileID: 4702554188352754163}
   - component: {fileID: 3798515667858017169}
-  - component: {fileID: 8038820583706861187}
+  - component: {fileID: 4704276987067677521}
   m_Layer: 0
   m_Name: BulletModel
   m_TagString: Untagged
@@ -243,7 +243,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7204647971529134275, guid: 420e510e0ccec0242a6ee062c1847d57, type: 3}
---- !u!114 &8038820583706861187
+--- !u!114 &4704276987067677521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -252,7 +252,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 9067935691894315798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1d04ea08dc6d34d86bc49fac65a744, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f2ab64d8cdaad4419c954372f8000e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 8546732423747076524}
+  DAMAGE: 10

@@ -18,6 +18,7 @@ public class Shooting : MonoBehaviour
     public float ammo;
     private bool isReloading = false;
     public ParticleSystem muzzleFlash;
+    public float PlayerHealth;
 
 
     void Update()
@@ -42,14 +43,14 @@ public class Shooting : MonoBehaviour
         if (!alreadyAttack)
         {
             GameObject projectile = Instantiate(ProjectilePF, attackPoint.transform.position, Quaternion.identity);
+            Vector3 targetPoint = (attackEnd.transform.position);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 15f, ForceMode.Impulse);
+            rb.AddForceAtPosition(attackPoint.transform.forward * 15f, targetPoint, ForceMode.Impulse);
             ammo--;
-
-            projectile.transform.LookAt(attackEnd.transform.position);
+            
+            projectile.transform.LookAt(targetPoint);
             projectile.transform.Rotate(0f, -90f, 0f);
             
-
             Destroy(projectile, 2f);
 
             alreadyAttack = true;
@@ -70,5 +71,20 @@ public class Shooting : MonoBehaviour
 
         ammo = 10f;
         isReloading = false;
+    }
+    //Take Damage
+    public void TakeDamage(float amount)
+    {
+        PlayerHealth -= amount;
+        if (PlayerHealth <= 0f)
+        {
+            Kill();
+        }
+    }
+
+    //Destroy
+    public void Kill()
+    {
+        Destroy(gameObject);
     }
 }
