@@ -74,10 +74,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
-  m_MinSize: {x: 677, y: 492}
-  m_MaxSize: {x: 14001, y: 14042}
+  m_MinSize: {x: 678, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 57
+  controlID: 55
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -97,8 +97,8 @@ MonoBehaviour:
     y: 0
     width: 422
     height: 731
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 58
+  controlID: 56
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 59
+  controlID: 57
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -456,20 +456,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\sante\Documents\Unity\3D-Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 8}
     m_SelectedIDs: d6370000
     m_LastClickedID: 14294
-    m_ExpandedIDs: 0000000080370000823700008437000086370000883700008a37000000ca9a3b
+    m_ExpandedIDs: 000000008437000086370000883700008a3700008c3700008e37000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -497,7 +497,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000080370000823700008437000086370000883700008a370000
+    m_ExpandedIDs: 000000008437000086370000883700008a3700008c3700008e370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -620,20 +620,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 983a0000
-      m_LastClickedID: 15000
-      m_ExpandedIDs: 98f4ffffeaf7ffff20f8ffffc8f9ffff8afaffffacfaffff68fbffff8e380000f23800003039000064390000723900002c3a0000aa3a0000b83a0000cc3a0000da3a0000023b0000
+      m_SelectedIDs: e6370000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 4eb6ffff08c4ffff94faffff66fbffff1e3800003638000044380000f83e0000223f00004a3f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Particle System
-        m_OriginalName: Particle System
+        m_Name: BulletModel
+        m_OriginalName: BulletModel
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -2074
+        m_UserData: 16202
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -682,9 +682,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.5080677, y: -0.8634169, z: -3.7909472}
+    m_Target: {x: -1.7083358, y: -0.19597374, z: 0.8994746}
     speed: 2
-    m_Value: {x: 1.5080677, y: -0.8634169, z: -3.7909472}
+    m_Value: {x: -1.7083358, y: -0.19597374, z: 0.8994746}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -730,20 +730,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.113940276, y: -0.04497375, z: 0.005093772, w: 0.99248356}
+    m_Target: {x: 0.17847903, y: -0.33233503, z: 0.06412568, w: 0.9239272}
     speed: 2
-    m_Value: {x: 0.11393717, y: -0.04497252, z: 0.0050936327, w: 0.99245644}
+    m_Value: {x: 0.17847414, y: -0.3323259, z: 0.06412392, w: 0.92390186}
   m_Size:
-    m_Target: 11.86137
+    m_Target: 9.343715
     speed: 2
-    m_Value: 11.86137
+    m_Value: 9.343715
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1.4
-    m_SpeedNormalized: 0.7000003
+    m_Speed: 1.2
+    m_SpeedNormalized: 0.5800004
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1

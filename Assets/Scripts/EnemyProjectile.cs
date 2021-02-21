@@ -14,9 +14,12 @@ public class EnemyProjectile : MonoBehaviour
             Shooting shooting = GetComponent<Shooting>();
             //Enemy enemy = GetComponent<Enemy>();
             //enemy.EnemyDamage = Damage;
-            shooting.TakeDamage(Damage);
-            Debug.Log("Player take damage!");
-            Destroy(projectile.gameObject);
+            if (shooting != null)
+            {
+                shooting.TakeDamage(Damage);
+                Debug.Log("Player take damage!");
+                Destroy(projectile.gameObject);
+            }
         }
     }
 }
