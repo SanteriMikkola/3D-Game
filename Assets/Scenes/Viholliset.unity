@@ -570,7 +570,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716930029}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -658,7 +658,6 @@ MonoBehaviour:
   Player: {fileID: 716930029}
   range: 20
   TimeBetweenAttack: 0.3
-  damage: 10
   ammo: 10
   muzzleFlash: {fileID: 722253691}
   PlayerHealth: 100
@@ -5563,7 +5562,6 @@ MonoBehaviour:
   attackpoint: {fileID: 1080850791}
   attackEnd: {fileID: 862010109}
   ammo: 10
-  EnemyDamage: 10
   sightRange: 20
   attackRange: 12
   alarmRange: 5
@@ -5579,7 +5577,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738340049}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -5808,7 +5806,7 @@ GameObject:
   m_Layer: 0
   m_Name: AttackEnd
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6320,6 +6318,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 738340054}
     m_Modifications:
+    - target: {fileID: 5422310476134445116, guid: ac74a07fbdfa7154a996b92a0d1a20e4,
+        type: 3}
+      propertyPath: EnemyDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422310476134445116, guid: ac74a07fbdfa7154a996b92a0d1a20e4,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 871256678}
     - target: {fileID: 8722478922684266616, guid: ac74a07fbdfa7154a996b92a0d1a20e4,
         type: 3}
       propertyPath: m_IsTrigger
@@ -6384,6 +6392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722478922684266618, guid: ac74a07fbdfa7154a996b92a0d1a20e4,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyProjectile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac74a07fbdfa7154a996b92a0d1a20e4, type: 3}

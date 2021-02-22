@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemyAssist
   - Enemy
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

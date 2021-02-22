@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour
     public GameObject attackEnd;
     public float ammo = 10f;
     private bool isReloading = false;
-    public float EnemyDamage;
 
     //States
     public float sightRange, attackRange, alarmRange;
@@ -177,5 +176,6 @@ public class Enemy : MonoBehaviour
     public void Kill()
     {
         Destroy(gameObject);
+        Debug.Log("Enemy is Dead");
     }
 }

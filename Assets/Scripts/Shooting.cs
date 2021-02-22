@@ -14,7 +14,6 @@ public class Shooting : MonoBehaviour
     public float range;
     public float TimeBetweenAttack;
     bool alreadyAttack;
-    public float damage;
     public float ammo;
     private bool isReloading = false;
     public ParticleSystem muzzleFlash;
@@ -85,6 +84,7 @@ public class Shooting : MonoBehaviour
     //Destroy
     public void Kill()
     {
-        Destroy(gameObject);
+        Destroy(Player);
+        Debug.Log("Player is Dead.");
     }
 }

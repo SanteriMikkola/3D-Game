@@ -5,21 +5,15 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     public Transform projectile;
-    public float Damage = 10f;
+    public float EnemyDamage = 5f;
 
-    public void OnCollisionEnter(Collision other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Shooting shooting = GetComponent<Shooting>();
-            //Enemy enemy = GetComponent<Enemy>();
-            //enemy.EnemyDamage = Damage;
-            if (shooting != null)
-            {
-                shooting.TakeDamage(Damage);
-                Debug.Log("Player take damage!");
-                Destroy(projectile.gameObject);
-            }
+            other.gameObject.GetComponent<Shooting>().TakeDamage(EnemyDamage);
+            Debug.Log("Player take damage!");
+            Destroy(projectile.gameObject);
         }
     }
 }
