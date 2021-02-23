@@ -18,6 +18,7 @@ public class Shooting : MonoBehaviour
     private bool isReloading = false;
     public ParticleSystem muzzleFlash;
     public float PlayerHealth;
+    public bool godmode = false;
 
 
     void Update()
@@ -33,6 +34,10 @@ public class Shooting : MonoBehaviour
         {
             StartCoroutine(Reloading());
             return;
+        }
+        if (godmode == true)
+        {
+            GodMode();
         }
     }
     private void Shoot()
@@ -86,5 +91,11 @@ public class Shooting : MonoBehaviour
     {
         Destroy(Player);
         Debug.Log("Player is Dead.");
+    }
+
+    public void GodMode()
+    {
+        godmode = true;
+        PlayerHealth = 3000;
     }
 }

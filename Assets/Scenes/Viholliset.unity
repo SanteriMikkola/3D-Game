@@ -199,7 +199,7 @@ PrefabInstance:
     - target: {fileID: 8546732423747076524, guid: 3ac8a47a0a0eb18459afc880a7851a6e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.08
+      value: -7.97
       objectReference: {fileID: 0}
     - target: {fileID: 8546732423747076524, guid: 3ac8a47a0a0eb18459afc880a7851a6e,
         type: 3}
@@ -656,11 +656,12 @@ MonoBehaviour:
   attackEnd: {fileID: 849261112}
   ProjectilePF: {fileID: 95484482}
   Player: {fileID: 716930029}
-  range: 20
+  range: 18
   TimeBetweenAttack: 0.3
   ammo: 10
   muzzleFlash: {fileID: 722253691}
   PlayerHealth: 100
+  godmode: 1
 --- !u!114 &716930035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5561,13 +5562,11 @@ MonoBehaviour:
     type: 3}
   attackpoint: {fileID: 1080850791}
   attackEnd: {fileID: 862010109}
-  ammo: 10
-  sightRange: 20
-  attackRange: 12
-  alarmRange: 5
+  ammo: 5
+  sightRange: 21
+  attackRange: 14
   PlayerInSightRange: 0
   PlayerInAttackRange: 0
-  AlarmCheck: 0
   health: 50
 --- !u!136 &738340051
 CapsuleCollider:
