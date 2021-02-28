@@ -156,14 +156,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9067935691894315798}
-  m_LocalRotation: {x: -0.31763592, y: 0.049146574, z: 0.016487965, w: 0.9467947}
+  m_LocalRotation: {x: -0.31806585, y: 0, z: 0, w: 0.9480686}
   m_LocalPosition: {x: 0.023764422, y: 0, z: -0.02323029}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8627268794741126183}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -91.302, z: 0}
+  m_LocalEulerAnglesHint: {x: -37.092003, y: 0, z: 0}
 --- !u!33 &4698323472157052425
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 96
   m_CollisionDetection: 1
 --- !u!64 &3798515667858017169
 MeshCollider:
@@ -256,4 +256,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 8546732423747076524}
-  DAMAGE: 10
+  PlayerDamage: 10

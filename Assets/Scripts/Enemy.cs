@@ -94,7 +94,7 @@ public class Enemy : MonoBehaviour
     private void PlayerChase()
     {
         agent.SetDestination(player.position);
-        agent.transform.LookAt(player);
+        agent.transform.LookAt(player.position);
         attackpoint.transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z));
         agent.transform.Rotate(0f, player.transform.position.x, 0f);
         agent.transform.Rotate(0f, player.transform.position.z, 0f);
@@ -103,7 +103,6 @@ public class Enemy : MonoBehaviour
     private void AttackPlayer()
     {
         agent.SetDestination(transform.position);
-        
 
         if (!AlreadyAttacked && ammo > 0f)
         {

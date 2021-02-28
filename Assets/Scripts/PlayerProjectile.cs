@@ -15,5 +15,9 @@ public class PlayerProjectile : MonoBehaviour
             Debug.Log("Enemy damaged!");
             Destroy(projectile.gameObject);
         }
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Destroy(projectile.gameObject);
+        }
     }
 }
