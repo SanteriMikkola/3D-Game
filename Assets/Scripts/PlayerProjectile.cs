@@ -19,5 +19,13 @@ public class PlayerProjectile : MonoBehaviour
         {
             Destroy(projectile.gameObject);
         }
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            Destroy(projectile.gameObject);
+        }
+        if (other.gameObject.CompareTag("Roof"))
+        {
+            Destroy(projectile.gameObject);
+        }
     }
 }
