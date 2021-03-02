@@ -35,9 +35,19 @@ public class Shooting : MonoBehaviour
             StartCoroutine(Reloading());
             return;
         }
+        if (Input.GetButtonDown("Fire1") && ammo <= 0f)
+        {
+            StartCoroutine(Reloading());
+            return;
+        }
         if (godmode == true)
         {
             GodMode();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Quit!");
+            Application.Quit();
         }
     }
     private void Shoot()
@@ -87,10 +97,12 @@ public class Shooting : MonoBehaviour
     }
 
     //Destroy
-    public void Kill()
+     public void Kill()
     {
-        Destroy(Player);
+        Destroy(Player, 1f);
         Debug.Log("Player is Dead.");
+        Debug.Log("Quit!");
+        Application.Quit();
     }
 
     public void GodMode()
