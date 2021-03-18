@@ -28,12 +28,11 @@ public class Enemy : MonoBehaviour
     private bool isReloading = false;
 
     //States
-    public float sightRange, attackRange, alarmRange;
+    public float sightRange, attackRange;
     public bool PlayerInSightRange, PlayerInAttackRange;
-    public bool AlarmCheck;
 
     //Health
-    public float health = 10f;
+    public float health;
 
     private void Awake()
     {
@@ -45,7 +44,7 @@ public class Enemy : MonoBehaviour
     {
         PlayerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         PlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        AlarmCheck = Physics.CheckSphere(transform.position, alarmRange, whatIsPlayer);
+        
 
         if (!PlayerInSightRange && !PlayerInAttackRange)
         {
@@ -73,15 +72,6 @@ public class Enemy : MonoBehaviour
             agent.SetDestination(WalkPoint);
         }
 
-        if (!AlarmCheck)
-        {
-            agent.SetDestination(WalkPoint);
-        }
-        if (AlarmCheck)
-        {
-            agent.SetDestination(player.position);
-        }
-
         Vector3 DistanceToWalkPoint = transform.position - WalkPoint;
 
         if (DistanceToWalkPoint.magnitude < 1f)
@@ -104,17 +94,18 @@ public class Enemy : MonoBehaviour
     private void PlayerChase()
     {
         agent.SetDestination(player.position);
-        agent.transform.LookAt(player);
-        attackpoint.transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z));
+        agent.transform.LookAt(player.position);
+        agent.transform.Rotate(0f, player.transform.position.x, 0f);
+        agent.transform.Rotate(0f, player.transform.position.z, 0f);
     }
 
     private void AttackPlayer()
     {
         agent.SetDestination(transform.position);
+        agent.transform.LookAt(player);
 
         if (!AlreadyAttacked && ammo > 0f)
         {
-            AlarmCheck = true;
             if (isReloading)
                 return;
 
@@ -127,11 +118,19 @@ public class Enemy : MonoBehaviour
 
             Destroy(projectile, 2f);
 
+            agent.transform.Rotate(0f, player.transform.position.x, 0f);
+            agent.transform.Rotate(0f, player.transform.position.z, 0f);
+            agent.SetDestination(transform.position);
+            agent.transform.LookAt(player);
+
             AlreadyAttacked = true;
             Invoke(nameof(ResetAttack), TimeBetweenAttacks);
 
             if (ammo <= 0f)
             {
+                agent.transform.Rotate(0f, player.transform.position.x, 0f);
+                agent.transform.Rotate(0f, player.transform.position.z, 0f);
+                agent.SetDestination(transform.position);
                 StartCoroutine(Reloading());
                 return;
             }
@@ -142,6 +141,7 @@ public class Enemy : MonoBehaviour
     {
         isReloading = true;
         Debug.Log("Enemy reloading!");
+        agent.transform.LookAt(player);
 
         yield return new WaitForSeconds(5f);
 
@@ -168,5 +168,6 @@ public class Enemy : MonoBehaviour
     public void Kill()
     {
         Destroy(gameObject);
+        Debug.Log("Enemy is Dead");
     }
 }

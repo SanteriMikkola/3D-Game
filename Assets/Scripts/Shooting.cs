@@ -14,10 +14,11 @@ public class Shooting : MonoBehaviour
     public float range;
     public float TimeBetweenAttack;
     bool alreadyAttack;
-    public float damage;
     public float ammo;
     private bool isReloading = false;
     public ParticleSystem muzzleFlash;
+    public float PlayerHealth;
+    public bool godmode = false;
 
 
     void Update()
@@ -34,6 +35,20 @@ public class Shooting : MonoBehaviour
             StartCoroutine(Reloading());
             return;
         }
+        if (Input.GetButtonDown("Fire1") && ammo <= 0f)
+        {
+            StartCoroutine(Reloading());
+            return;
+        }
+        if (godmode == true)
+        {
+            GodMode();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Quit!");
+            Application.Quit();
+        }
     }
     private void Shoot()
     {
@@ -42,14 +57,14 @@ public class Shooting : MonoBehaviour
         if (!alreadyAttack)
         {
             GameObject projectile = Instantiate(ProjectilePF, attackPoint.transform.position, Quaternion.identity);
+            Vector3 targetPoint = (attackEnd.transform.position);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 15f, ForceMode.Impulse);
+            rb.AddForceAtPosition(attackPoint.transform.forward * 15f, targetPoint, ForceMode.Impulse);
             ammo--;
-
-            projectile.transform.LookAt(attackEnd.transform.position);
-
             
-
+            projectile.transform.LookAt(targetPoint);
+            projectile.transform.Rotate(0f, -90f, 0f);
+            
             Destroy(projectile, 2f);
 
             alreadyAttack = true;
@@ -70,5 +85,29 @@ public class Shooting : MonoBehaviour
 
         ammo = 10f;
         isReloading = false;
+    }
+    //Take Damage
+    public void TakeDamage(float amount)
+    {
+        PlayerHealth -= amount;
+        if (PlayerHealth <= 0f)
+        {
+            Kill();
+        }
+    }
+
+    //Destroy
+     public void Kill()
+    {
+        Destroy(Player, 1f);
+        Debug.Log("Player is Dead.");
+        Debug.Log("Quit!");
+        Application.Quit();
+    }
+
+    public void GodMode()
+    {
+        godmode = true;
+        PlayerHealth = 3000;
     }
 }

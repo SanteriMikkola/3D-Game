@@ -10,10 +10,9 @@ public class ShootingEffect : MonoBehaviour
     public GameObject Trail;
     public GameObject ProjectilePF;
 
-
     public void Awake()
     {
-        GameObject trail = Instantiate(ProjectilePF.gameObject, ProjectilePF.transform.position, Quaternion.identity);
+        GameObject trail = Instantiate(Trail, ProjectilePF.transform.position, Quaternion.identity);
 
         trail.transform.LookAt(ProjectilePF.transform.position);
 
