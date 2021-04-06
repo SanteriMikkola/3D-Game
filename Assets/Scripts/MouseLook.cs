@@ -29,11 +29,5 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(Xrotate, 0f, 0f);
         PlayerBody.Rotate(Vector3.up * MouseX);
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Quit!");
-            Application.Quit();
-        }
     }
 }

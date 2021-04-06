@@ -815,8 +815,7 @@ MonoBehaviour:
   WalkPoint: {x: 0, y: 0, z: 0}
   WalkPointRange: 5
   TimeBetweenAttacks: 1
-  projectileCO: {fileID: 8722478922684266618, guid: ac74a07fbdfa7154a996b92a0d1a20e4,
-    type: 3}
+  projectileCO: {fileID: 1192264021}
   attackpoint: {fileID: 1092759095}
   attackEnd: {fileID: 508555096}
   ammo: 5
@@ -4294,6 +4293,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1192264021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8722478922684266618, guid: ac74a07fbdfa7154a996b92a0d1a20e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 773747835}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1206171630
 GameObject:
   m_ObjectHideFlags: 0
