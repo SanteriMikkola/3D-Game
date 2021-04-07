@@ -167,7 +167,7 @@ public class Enemy : MonoBehaviour
     //Destroy
     public void Kill()
     {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
         Debug.Log("Enemy is Dead");
     }
 }

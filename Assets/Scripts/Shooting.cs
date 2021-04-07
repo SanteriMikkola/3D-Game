@@ -47,8 +47,9 @@ public class Shooting : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Quit!");
-            Application.Quit();
+            Debug.Log("Return to menu");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
     private void Shoot()
