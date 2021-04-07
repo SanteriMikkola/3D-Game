@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Shooting : MonoBehaviour
 {
@@ -46,8 +47,9 @@ public class Shooting : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Quit!");
-            Application.Quit();
+            Debug.Log("Return to menu");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
     private void Shoot()
@@ -97,12 +99,13 @@ public class Shooting : MonoBehaviour
     }
 
     //Destroy
-     public void Kill()
+    public void Kill()
     {
+        Cursor.lockState = CursorLockMode.None;
         Destroy(Player, 1f);
         Debug.Log("Player is Dead.");
-        Debug.Log("Quit!");
-        Application.Quit();
+        Debug.Log("Back to menu");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void GodMode()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
     public NavMeshAgent agent;
@@ -167,7 +167,7 @@ public class Enemy : MonoBehaviour
     //Destroy
     public void Kill()
     {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
         Debug.Log("Enemy is Dead");
     }
 }
